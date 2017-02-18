@@ -10,16 +10,30 @@ var burgerData = require('../models/burger.js');
 module.exports = function (app){
     // Here, when we type the / in the browser, it is a get request. It performs a function, that uses the 
     app.get("/", function (request, response){
-        burgerData.selectAll(function(response){
-            response.send("hello world")
+        burgerData.selectAll(function(data){
+            var burgerObj = {
+                burgers: data
+            };
+            console.log(burgerObj);
+            response.json(burgerObj);
         });
     });
 
     app.post("/", function (request, response){
-        burgerData("insertOne", burger_name, devoured, callBack);
+        burgerData.insertOne(["burger_name", "devoured"], [req.body.burger_name, false], function(){
+            res.redirect("/");
+        });
     });
 
-    app.put("/", function (request, response){
-        burgerData("updateOne", burger_name, true, id);
+    app.put("/:id", function (request, response){
+        var condition = "id = " + req.params.id;
+
+        console.log("Current condition: " + condition);
+
+        burgerData.updateOne({ 
+            devoured: req.body.devoured}, condition, function(){
+            res.redirect("/");
+        });
     });
+
 }
