@@ -20,8 +20,14 @@ module.exports = function (app){
     });
 
     app.post("/", function (request, response){
-        burgerData.insertOne(["burger_name", "devoured"], [req.body.burger_name, false], function(){
-            res.redirect("/");
+        burgerData.insertOne(request.body.burger_name, request.body.devoured, function(){
+            var burgerObj = {
+                burgers: data
+            };
+            console.log(burgerObj);
+            response.json(burgerObj);
+            response.redirect("/");
+
         });
     });
 
@@ -32,7 +38,7 @@ module.exports = function (app){
 
         burgerData.updateOne({ 
             devoured: req.body.devoured}, condition, function(){
-            res.redirect("/");
+            response.redirect("/");
         });
     });
 

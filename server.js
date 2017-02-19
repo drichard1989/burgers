@@ -24,7 +24,7 @@ app.use(bodyParser.json({type: "application/vnd.api+json" }));
 app.use(methodOverride("_method"));
 
 // Here, we are going to incorporate our handlebars NPM package using express. 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}))
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // This variable is pointing to where all of our express routes are located. 

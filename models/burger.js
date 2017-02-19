@@ -1,4 +1,4 @@
-// Here, we are creating an ORM, which refers to Object Relational Mapping, where are setting up the ORM to interact with our Database using an object. 
+// Here, we talking to an ORM, which refers to Object Relational Mapping, where are setting up the ORM to interact with our Database using an object. 
 
 var orm = require('../config/orm.js');
 
@@ -9,8 +9,8 @@ var burgerData = {
         });
     },
 
-    insertOne: function(burger_name, callBack){
-        orm.insertOne("burger", burger_name, function(res){
+    insertOne: function(burger_name, devoured, callBack){
+        return orm.insertOne("burgers", {burger_name: burger_name, devoured: devoured}, function(res){
             callBack(res);
         });
     },

@@ -14,9 +14,9 @@ var orm = {
     }
     ,
     // Remember, ?? is looking for a tablename or a colname, ? is looking for a value. 
-    insertOne: function(tableInput, burger_name, devoured, callBack){
-        var queryString = 'INSERT INTO ?? (?) VALUES ?, ?';
-        connect.query(queryString, [tableInput, burger_name, devoured], function (error, result){
+    insertOne: function(tableInput, colName, values, callBack){
+        var queryString = 'INSERT INTO ?? SET ?';
+        connection.query(queryString, tableInput, values, function (error, result){
             if(error){
                 throw error;
             }
