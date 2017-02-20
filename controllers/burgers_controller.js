@@ -20,8 +20,8 @@ module.exports = function (app){
             // Since we passed in the burger name, for this application, the burgers are going to be displayed on the home page once the data has been added to the database. I don't think I need to use that information here, so I am going to re-direct them to the home page. 
             //Once the burgerData function has all the data it needs, it is going to send the data here, which is the response. We are waiting for a response, and once it occurs, we redirect them to the home page.
             response.redirect("/");
-        })
-    })
+        });
+    });
 
 // Here, we are going to contruct a route that allows us to update the devoured status to true. In order to do this, we are going to need to grab the data by the unique identifyer, (ID), and change it from false, to true. We are going to need to grab the row name, grab the column name, and change the value from false to true.  
 // Note: In order to test this route in POSTMAN, we need to do the following settings in POSTMAN: Select POST, change our url to http://localhost:3000/?_method=put , change the body content to x-www-form-urlencoded, and place our id and id that you want to select as the key and the value. 
@@ -31,7 +31,7 @@ module.exports = function (app){
 
             //Since we passed in the id, for this application, the burgers are going to be moved on the homepage from one column to the next once the status of devoured has been changed in the database. I don't think I need to use that information specifically here. 
             response.redirect("/");
-        })
-    })
+        });
+    });
 
 };
