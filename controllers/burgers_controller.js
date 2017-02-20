@@ -9,7 +9,7 @@ module.exports = function (app){
                 burgers: data
             };
             console.log(burgerObj);
-            response.json(burgerObj);
+            response.render("index", burgerObj);
         });
     });
 
@@ -35,4 +35,4 @@ module.exports = function (app){
         })
     })
 
-}
+};
