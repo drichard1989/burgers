@@ -8,6 +8,11 @@ var connection = mysql.createConnection({
   password: myPassword.mySQLKey.password,
   database: "burgers_db"
 });
+
+if (process.env.JAWSDB_URL){
+  connectInfo=process.env.JAWSDB_URL;
+}
+
 // Here, we are running the connect method on the connection object. 
 connection.connect(function(err) {
   if (err) {
