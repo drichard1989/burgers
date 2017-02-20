@@ -2,7 +2,7 @@
 var mysql = require("mysql");
 var myPassword = require('./keys.js');
 
-var connectionInfo = {
+var connectInfo = {
   host: "localhost",
   user: "root",
   password: myPassword.mySQLKey.password,
