@@ -2,12 +2,12 @@
 var mysql = require("mysql");
 var myPassword = require('./keys.js');
 
-var connection = mysql.createConnection({
+var connectionInfo = {
   host: "localhost",
   user: "root",
   password: myPassword.mySQLKey.password,
   database: "burgers_db"
-});
+};
 
 if (process.env.JAWSDB_URL){
   connectInfo=process.env.JAWSDB_URL;
