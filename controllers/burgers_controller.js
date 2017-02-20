@@ -8,7 +8,6 @@ module.exports = function (app){
             var burgerObj = {
                 burgers: data
             };
-            console.log(burgerObj);
             response.render("index", burgerObj);
         });
     });
