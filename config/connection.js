@@ -1,11 +1,11 @@
 //Here, we are requiring the mysql package, and then we are creating a connection to mysql by creating a connection object with the properties  to use the mysql server. 
 var mysql = require("mysql");
-var myPassword = require('./keys.js');
+// var myPassword = require('./keys.js');
 
 var connectInfo = {
   host: "localhost",
   user: "root",
-  password: myPassword.mySQLKey.password,
+  password: '',
   database: "burgers_db"
 };
 
